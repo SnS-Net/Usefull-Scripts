@@ -14,8 +14,8 @@ Delve into these scripts to streamline your Linux endeavors. We're confident you
 
 1. Clone this repository to your local machine:
 
-   ```shell
-   git clone https://github.com/SnS-Net/Useful-Scripts.git
-   ```
+```plaintext
+git clone https://github.com/SnS-Net/Useful-Scripts.git
+```
    
    Your Linux journey just got a whole lot easier! 🌟
