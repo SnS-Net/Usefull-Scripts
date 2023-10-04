@@ -69,10 +69,12 @@ if [ "$READY" == "ready" ]; then
     You can verify your ZeroTier status using the following command: \
     sudo zerotier-cli status \
     ##########################################################################"
-    echo "ALL DONE! THANKS FOR USING SNS_SCRIPTS!!!"
     exit
 fi
 
-echo "Exiting the script."
+echo "
+===========================================
+ALL DONE! THANKS FOR USING SNS_SCRIPTS!!!!!
+==========================================="
 
 exit
