@@ -1,65 +1,78 @@
-#!/bin/bash/
+#!/bin/bash
 
-ERROR="Their was a problem installing packages. Check Network Connections"
+# Error message for package installation failure
+ERROR="There was a problem installing packages. Check network connections."
+
+# Check ZeroTier status and store it in a variable
 ZEROTIER_STATUS=$(sudo zerotier-cli status)
+
+# Get ZeroTier interface IP address
 ZEROTIER_IP=$(ifconfig | grep -A 1 "zt" | grep "inet")
+
+# Print a welcome message
 echo "
 *************************************************************************
-This is a Simple install script for your Zero-Tier Installations!!!!
-It will require your Zero-Tier Network ID to commplete this installations
+This is a simple installation script for ZeroTier!
+It will require your ZeroTier Network ID to complete the installation.
 *************************************************************************"
 sleep 15
 
+# Update system packages
 echo "
 ----------------------------------------------
-[INFO] : UP DATING YOUR SYSTEMS PACKAGAGES!!
+[INFO] : UPDATING YOUR SYSTEM PACKAGES!
 ----------------------------------------------"
 sudo apt update && sudo apt dist-upgrade -y || echo "$ERROR"
-sudo apt install curl -y && apt install net-tools
+sudo apt install curl -y && sudo apt install net-tools -y
 sleep 2
 
+# Prompt for ZeroTier Network ID
 echo "
 =====================================
-What is your Zeroteir Network ID? e:
+What is your ZeroTier Network ID? :
 ====================================="
-read -NETWORK_ID
+read -r NETWORK_ID
 
+# Install ZeroTier and its dependencies
 echo "
------------------------------------------------
-[INFO] : INSTALLING ZERO-TEIR AND IT'S DEPENDS!
------------------------------------------------"
+---------------------------------------------------
+[INFO] : INSTALLING ZERO-TIER AND ITS DEPENDENCIES!
+---------------------------------------------------"
 curl -s https://install.zerotier.com | sudo bash
 sleep 3
 
+# Connect to the specified ZeroTier network
 echo "
 --------------------------------------------------
-[INFO] : Connecting to NETWORK: $NETWORK_ID
+[INFO] : CONNECTING TO NETWORK: $NETWORK_ID
 --------------------------------------------------"
 sleep 5
-sudo zerotier-cli join $NETWORK_ID
+sudo zerotier-cli join "$NETWORK_ID"
 sleep 2
 
+# Prompt to authorize the new interface
 echo "
 =========================================================================================
-The install was successful go to your zerotier account and AUTHORIZE your new interface!
-TYPE ready WHEN YOUR DONE!!!!!
+The installation was successful. Go to your ZeroTier account and AUTHORIZE your new interface!
+TYPE 'ready' WHEN YOU'RE DONE!!!!!
 ========================================================================================="
 
-read -READY
+read -r READY
 
-if [ $READY == ready ] then
-    echo "Checking your network status  \
+if [ "$READY" == "ready" ]; then
+    echo "Checking your network status \
     ******************************************** \
-    ZeroTier stats : $ZEROTIER_STATUS \
+    ZeroTier status: $ZEROTIER_STATUS \
     ZeroTier IP: $ZEROTIER_IP \
-    *********************************************" || echo " You typed $READY! instead of ready. \
+    *********************************************" || echo "You typed '$READY' instead of 'ready'. \
     ##########################################################################
-    You can check verify your zerotier status following command: \
+    You can verify your ZeroTier status using the following command: \
     sudo zerotier-cli status \
     ##########################################################################"
+    echo "ALL DONE! THANKS FOR USING SNS_SCRIPTS!!!"
     exit
+fi
 
-echo "ALL DONE! THANKS FOR USING SNS_SCRIPTS!!!"
+echo "Exiting the script."
 
 exit
-    
