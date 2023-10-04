@@ -12,7 +12,7 @@ ZEROTIER_IP=$(ifconfig | grep -A 1 "zt" | grep "inet")
 # Print a welcome message
 echo "
 *************************************************************************
-This is a simple installation script for ZeroTier!
+This is a simple installation script for seting up your ZeroTier-Network!
 It will require your ZeroTier Network ID to complete the installation.
 *************************************************************************"
 sleep 15
