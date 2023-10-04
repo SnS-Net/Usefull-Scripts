@@ -15,5 +15,5 @@ Feel free to explore and use these scripts to simplify your Linux tasks. We hope
 1. Clone this repository to your local machine:
 
    ```shell
-  [ git clone https://github.com/YourUsername/Useful-Scripts.git](https://github.com/SnS-Net/Usefull-Scripts.git)https://github.com/SnS-Net/Usefull-Scripts.git
+  git clone (https://github.com/SnS-Net/Usefull-Scripts.git
 
