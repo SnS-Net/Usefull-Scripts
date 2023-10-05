@@ -1,21 +1,30 @@
 #!/bin/bash
-## THANKS FOR CHECKING OUT SNS-NET USFULL-Scrips!! This is inteded to ping a range of ip address  that you specify and save them to a file. 
 
-# This will prompt you to enter the network ID (ex: for a CLASS C = '192.168.122'.... CLASS B = '10.0')
-read -p "Enter the first part of you network ID (e.g., class C = 192.168.1): " network_id
+# Colors for terminal output
+GREEN="\e[32m"
+RED="\e[31m"
+YELLOW="\e[33m"
+RESET="\e[0m"
 
-# This will prompt for the starting and ending IP range with all 4 octects (e.g., 10.0.0.4)
-read -p "Enter the starting IP address: " sSTART_IP
-read -p "Enter the ending IP address: " END_IP
+# Header message
+echo -e "${GREEN}** THANKS FOR CHECKING OUT SNS-NET USEFUL-SCRIPTS! **${RESET}"
+echo -e "${YELLOW}This script pings a range of IP addresses that you specify and saves them to a file.${RESET}"
+
+# Prompt the user to enter the network ID
+read -p "Enter the first part of your network ID (e.g., class C = 192.168.1): " network_id
+
+# Prompt for the starting and ending IP range with all 4 octets (e.g., 10.0.0.4)
+read -p "Enter the starting IP address: " start_ip
+read -p "Enter the ending IP address: " end_ip
 
 # Validate IP addresses
-if ! [[ $START_IP =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ && $END_IP =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo "Invalid IP address format. Please use the format 'x.x.x.x'."
+if ! [[ $start_ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ && $end_ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+  echo -e "${RED}Invalid IP address format. Please use the format 'x.x.x.x'.${RESET}"
   exit 1
 fi
 
 # Define the output file
-OUTPUT_FILE="responsive_ips.txt"
+output_file="responsive_ips.txt"
 
 # Split IP addresses into components
 IFS='.' read -r -a start_ip_parts <<< "$start_ip"
@@ -26,18 +35,19 @@ for ((i=${start_ip_parts[3]};i<=${end_ip_parts[3]};i++)); do
   ip="${network_id}.${i}"
   if ping -c 1 -W 1 "$ip" >/dev/null; then
     hostname=$(nslookup "$ip" | awk '/^Name:/ {print $2}')
-    echo "IP: $ip, Hostname: $hostname" >> "$OUTPUT_FILE"
+    echo -e "IP: ${YELLOW}$ip${RESET}, Hostname: ${YELLOW}$hostname${RESET}" >> "$output_file"
   fi
 done
 
-echo "
-========================================================
-Ping and hostname results are saved in $OUTPUT_FILE
-========================================================"
+# Completion message
+echo -e "
+${GREEN}========================================================
+Ping and hostname results are saved in $output_file
+========================================================${RESET}"
 
-echo " 
-********************************************
-**THANK YOU FOR USING SNS USFULL-SCRIPT!!***
-********************************************"
+echo -e " 
+${YELLOW}********************************************
+** THANK YOU FOR USING SNS USEFUL-SCRIPT! **
+********************************************${RESET}"
 
 exit
