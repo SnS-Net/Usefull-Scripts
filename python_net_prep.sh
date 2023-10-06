@@ -1,5 +1,12 @@
 #!/bin/bash
 
+
+# Colors for terminal output
+GREEN="\e[32m"
+RED="\e[31m"
+YELLOW="\e[33m"
+RESET="\e[0m"
+
 echo "
 -------------------------------------------------------------
 [INFO]: Installing packages necessary for Python Networking
@@ -28,5 +35,7 @@ sudo python3 -m pip install --upgrade pip
 # Install Python packages using pip3 (use pip3 for Python 3)
 sudo python3 -m pip install paramiko netmiko
 
-echo "All DONE!!! THANKS FOR USING USEFULL-SCRIPTS"
+echo "
+******************************************************
+** All DONE!!! THANKS FOR USING USEFULL-SCRIPTS"
 exit
