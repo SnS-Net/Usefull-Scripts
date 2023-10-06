@@ -1,8 +1,10 @@
 #!/bin/bash
 
-echo "Installing packages necessary for Python Networking"
-
-# Define an array of package names
+echo "
+-------------------------------------------------------------
+[INFO]: Installing packages necessary for Python Networking
+-------------------------------------------------------------"
+# This defines an array of package names necessary for python networking
 PACKAGES=(
     python3
     python3-pip
