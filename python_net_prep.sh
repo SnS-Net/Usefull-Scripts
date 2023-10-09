@@ -5,7 +5,7 @@ RED="\e[31m"
 YELLOW="\e[33m"
 RESET="\e[0m"
 
-echo "
+echo -e "
 -------------------------------------------------------------
 ${YELLOW} [INFO]:${RESET} Installing packages necessary for Python Networking
 -------------------------------------------------------------"
