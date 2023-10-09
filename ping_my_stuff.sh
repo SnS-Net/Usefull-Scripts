@@ -48,6 +48,8 @@ Ping and hostname results are saved in $output_file
 echo -e " 
 ${YELLOW}********************************************
 ** THANK YOU FOR USING SNS USEFUL-SCRIPT! **
+For more documentations check out the wiki:
+https://github.com/SnS-Net/Usefull-Scripts/wiki/PING_MY_STUFF
 ********************************************${RESET}"
 
 exit
