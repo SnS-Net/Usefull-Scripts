@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 # Colors for terminal output
 GREEN="\e[32m"
 RED="\e[31m"
@@ -9,7 +7,7 @@ RESET="\e[0m"
 
 echo "
 -------------------------------------------------------------
-[INFO]: Installing packages necessary for Python Networking
+${YELLOW} [INFO]:${RESET} Installing packages necessary for Python Networking
 -------------------------------------------------------------"
 # This defines an array of package names necessary for python networking
 PACKAGES=(
@@ -22,7 +20,7 @@ PACKAGES=(
     libffi-dev
 )
 
-# Install the packages using a for loop
+# Installing the packages using a "for" loop
 for pkg in "${PACKAGES[@]}"; do
     sudo apt install -y "$pkg"  # Use -y to automatically confirm installation
 done
@@ -35,7 +33,8 @@ sudo python3 -m pip install --upgrade pip
 # Install Python packages using pip3 (use pip3 for Python 3)
 sudo python3 -m pip install paramiko netmiko
 
-echo "
+echo -e "
 ******************************************************
-** All DONE!!! THANKS FOR USING USEFULL-SCRIPTS"
+${GREEN} All DONE!!! THANKS FOR USING USEFULL-SCRIPTS ${RESET}
+******************************************************"
 exit
