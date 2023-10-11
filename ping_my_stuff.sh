@@ -19,7 +19,10 @@ read -p "Enter the ending IP address: " end_ip
 
 # Validate IP addresses
 if ! [[ $start_ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ && $end_ip =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-  echo -e "${RED}Invalid IP address format. Please use the format 'x.x.x.x'.${RESET}"
+  echo -e "
+  ////////////////////////////////////////////////////////////////////////////
+  \\ ${RED}Invalid IP address format. Please use the format 'x.x.x.x'.${RESET}\\
+  ///////////////////////////////////////////////////////////////////////////"
   exit 1
 fi
 
