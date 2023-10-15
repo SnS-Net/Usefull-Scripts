@@ -37,7 +37,7 @@ IFS='.' read -r -a end_ip_parts <<< "$end_ip"
 for ((i=${start_ip_parts[3]};i<=${end_ip_parts[3]};i++)); do
   ip="${network_id}.${i}"
   if ping -c 1 -W 1 "$ip" >/dev/null; then
-    hostname=$(nslookup "$ip" | awk '/^Name:/ {print $2}')
+    hostname=$(host "$ip" | awk '/has address/ {print $1}')
     echo -e "IP: ${YELLOW}$ip${RESET}, Hostname: ${YELLOW}$hostname${RESET}" >> "$output_file"
   fi
 done
