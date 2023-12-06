@@ -1,6 +1,6 @@
 # 🚀 Welcome to the Useful-Scripts Repository!
 
-These are easy yet powerful time saving scripts designed to enhance your Linux experience, whether you're on a desktop or managing servers. These scripts are thoughtfully crafted to prompt for your personal input, ensuring seamless customization.
+These easy yet powerful time-saving scripts are designed to enhance your Linux experience, whether you're on a desktop or managing servers. Each script is thoughtfully crafted to prompt for your personal input, ensuring seamless customization.
 
 Every week, I upload SnS-Net's Useful-Scripts repository with fresh templates, making Linux tasks even more efficient. Here's a sneak peek at a few:
 
@@ -11,10 +11,33 @@ Delve into these scripts to streamline your Linux endeavors. I'm confident you'l
 
 ## Usage
 
-1. Clone this repository to your local machine:
+1. **Clone this repository to your local machine:**
 
-```plaintext
-git clone https://github.com/SnS-Net/Useful-Scripts.git
-```
-   
-   Your Linux journey just got a whole lot easier! 🌟
+    ```bash
+    git clone https://github.com/SnS-Net/Useful-Scripts.git
+    ```
+
+    Your Linux journey just got a whole lot easier! 🌟
+
+    If you need more explanation on how these scripts work, feel free to check out my [wiki](https://github.com/SnS-Net/Usefull-Scripts/wiki).
+
+### Installation Instructions
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/SnS-Net/Useful-Scripts.git
+    ```
+
+### Script Descriptions
+
+- **zerotier_install.sh 🌐:** Simplifies the installation and configuration of ZeroTier on Linux systems.
+
+- **ping_my_stuff.sh 📡:** Swiftly assesses the availability of multiple hosts using a simple ping.
+
+### Usage Examples
+
+```bash
+# Example for zerotier_install.sh
+./zerotier_install.sh
+
